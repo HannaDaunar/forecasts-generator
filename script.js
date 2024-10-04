@@ -19,9 +19,9 @@ function generateRandomValue(min, max) {
     const number = Math.random() * (max - min) + min;
     return +number.toFixed();
 }
+const forecastItemTemplate = document.querySelector('#forecast-item');
 
 function makeForecastByTemplate(text, probability) {
-    const forecastItemTemplate = document.querySelector('#forecast-item');
     const myForecastItem = forecastItemTemplate.content.cloneNode(true);
     myForecastItem.querySelector('.forecast-item h3').textContent = text;
     myForecastItem.querySelector('.forecast-item p').textContent = probability;
@@ -31,7 +31,7 @@ function makeForecastByTemplate(text, probability) {
 const sendButton = document.querySelector('.forecast-btn');
 sendButton.addEventListener('click', function() {
 
-    let predictionNumber = generateRandomValue(1, 5);
+    const predictionNumber = generateRandomValue(1, 5);
     let predictionText = "";
 
     if (predictionNumber == 1) {
